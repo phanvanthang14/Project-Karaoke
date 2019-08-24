@@ -1,0 +1,19 @@
+D:\Win nâng cao\QuanLyQuanKaraoke\QuanLyQuanKaraoke\bin\Debug\QuanLyQuanKaraoke.exe.config
+D:\Win nâng cao\QuanLyQuanKaraoke\QuanLyQuanKaraoke\bin\Debug\QuanLyQuanKaraoke.exe
+D:\Win nâng cao\QuanLyQuanKaraoke\QuanLyQuanKaraoke\bin\Debug\QuanLyQuanKaraoke.pdb
+D:\Win nâng cao\QuanLyQuanKaraoke\QuanLyQuanKaraoke\obj\Debug\QuanLyQuanKaraoke.csprojResolveAssemblyReference.cache
+D:\Win nâng cao\QuanLyQuanKaraoke\QuanLyQuanKaraoke\obj\Debug\QuanLyQuanKaraoke.FormMain.resources
+D:\Win nâng cao\QuanLyQuanKaraoke\QuanLyQuanKaraoke\obj\Debug\QuanLyQuanKaraoke.Properties.Resources.resources
+D:\Win nâng cao\QuanLyQuanKaraoke\QuanLyQuanKaraoke\obj\Debug\QuanLyQuanKaraoke.csproj.GenerateResource.Cache
+D:\Win nâng cao\QuanLyQuanKaraoke\QuanLyQuanKaraoke\obj\Debug\QuanLyQuanKaraoke.exe
+D:\Win nâng cao\QuanLyQuanKaraoke\QuanLyQuanKaraoke\obj\Debug\QuanLyQuanKaraoke.pdb
+D:\GITHUB\Project-Win\QuanLyQuanKaraoke\QuanLyQuanKaraoke\bin\Debug\QuanLyQuanKaraoke.exe.config
+D:\GITHUB\Project-Win\QuanLyQuanKaraoke\QuanLyQuanKaraoke\obj\Debug\QuanLyQuanKaraoke.exe
+D:\GITHUB\Project-Win\QuanLyQuanKaraoke\QuanLyQuanKaraoke\obj\Debug\QuanLyQuanKaraoke.pdb
+D:\GITHUB\Project-Win\QuanLyQuanKaraoke\QuanLyQuanKaraoke\bin\Debug\QuanLyQuanKaraoke.exe
+D:\GITHUB\Project-Win\QuanLyQuanKaraoke\QuanLyQuanKaraoke\bin\Debug\QuanLyQuanKaraoke.pdb
+D:\GITHUB\Project-Win\QuanLyQuanKaraoke\QuanLyQuanKaraoke\obj\Debug\QuanLyQuanKaraoke.csprojResolveAssemblyReference.cache
+D:\GITHUB\Project-Win\QuanLyQuanKaraoke\QuanLyQuanKaraoke\obj\Debug\QuanLyQuanKaraoke.FormMain.resources
+D:\GITHUB\Project-Win\QuanLyQuanKaraoke\QuanLyQuanKaraoke\obj\Debug\QuanLyQuanKaraoke.Properties.Resources.resources
+D:\GITHUB\Project-Win\QuanLyQuanKaraoke\QuanLyQuanKaraoke\obj\Debug\QuanLyQuanKaraoke.csproj.GenerateResource.Cache
+D:\GITHUB\Project-Win\QuanLyQuanKaraoke\QuanLyQuanKaraoke\obj\Debug\QuanLyQuanKaraoke.Login.resources
