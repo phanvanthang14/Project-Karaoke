@@ -87,9 +87,18 @@
             this.styleManager2 = new DevComponents.DotNetBar.StyleManager(this.components);
             this.ribbonClientPanel1 = new DevComponents.DotNetBar.Ribbon.RibbonClientPanel();
             this.buttonX1 = new DevComponents.DotNetBar.ButtonX();
-            this.btnNV = new DevComponents.DotNetBar.ButtonX();
             this.btnNgayGio = new DevComponents.DotNetBar.ButtonX();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.btnTrong = new System.Windows.Forms.Button();
+            this.btnDangHat = new System.Windows.Forms.Button();
+            this.btnDangDon = new System.Windows.Forms.Button();
+            this.btnBaoTri = new System.Windows.Forms.Button();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.kháchVàoHátToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cậpNhậtDịchVụToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.đổiPhòngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dọnPhòngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bảoTrìToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ribbonControl1.SuspendLayout();
             this.ribbonPanel1.SuspendLayout();
             this.ribbonPanel4.SuspendLayout();
@@ -97,6 +106,7 @@
             this.ribbonPanel5.SuspendLayout();
             this.ribbonPanel3.SuspendLayout();
             this.ribbonClientPanel1.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // ribbonControl1
@@ -125,7 +135,7 @@
             this.ribbonControl1.QuickToolbarItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
             this.buttonItem1,
             this.qatCustomizeItem1});
-            this.ribbonControl1.Size = new System.Drawing.Size(1217, 190);
+            this.ribbonControl1.Size = new System.Drawing.Size(1677, 190);
             this.ribbonControl1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.ribbonControl1.SystemText.MaximizeRibbonText = "&Maximize the Ribbon";
             this.ribbonControl1.SystemText.MinimizeRibbonText = "Mi&nimize the Ribbon";
@@ -155,7 +165,7 @@
             this.ribbonPanel1.Location = new System.Drawing.Point(0, 53);
             this.ribbonPanel1.Name = "ribbonPanel1";
             this.ribbonPanel1.Padding = new System.Windows.Forms.Padding(3, 0, 3, 3);
-            this.ribbonPanel1.Size = new System.Drawing.Size(1217, 134);
+            this.ribbonPanel1.Size = new System.Drawing.Size(1677, 134);
             // 
             // 
             // 
@@ -932,13 +942,16 @@
             // ribbonClientPanel1
             // 
             this.ribbonClientPanel1.CanvasColor = System.Drawing.SystemColors.Control;
+            this.ribbonClientPanel1.Controls.Add(this.btnBaoTri);
+            this.ribbonClientPanel1.Controls.Add(this.btnDangDon);
+            this.ribbonClientPanel1.Controls.Add(this.btnDangHat);
+            this.ribbonClientPanel1.Controls.Add(this.btnTrong);
             this.ribbonClientPanel1.Controls.Add(this.buttonX1);
-            this.ribbonClientPanel1.Controls.Add(this.btnNV);
             this.ribbonClientPanel1.Controls.Add(this.btnNgayGio);
             this.ribbonClientPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.ribbonClientPanel1.Location = new System.Drawing.Point(0, 704);
+            this.ribbonClientPanel1.Location = new System.Drawing.Point(0, 587);
             this.ribbonClientPanel1.Name = "ribbonClientPanel1";
-            this.ribbonClientPanel1.Size = new System.Drawing.Size(1217, 70);
+            this.ribbonClientPanel1.Size = new System.Drawing.Size(1677, 70);
             // 
             // 
             // 
@@ -960,25 +973,13 @@
             this.buttonX1.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.buttonX1.Dock = System.Windows.Forms.DockStyle.Right;
             this.buttonX1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonX1.Location = new System.Drawing.Point(535, 0);
+            this.buttonX1.Location = new System.Drawing.Point(995, 0);
             this.buttonX1.Name = "buttonX1";
             this.buttonX1.Size = new System.Drawing.Size(682, 70);
             this.buttonX1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX1.TabIndex = 2;
             this.buttonX1.Text = "Phần mềm quản lý quán karaoke                              Tác giả: Văn Thắng, Vă" +
     "n Hiệp";
-            // 
-            // btnNV
-            // 
-            this.btnNV.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnNV.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnNV.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnNV.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNV.Location = new System.Drawing.Point(217, 0);
-            this.btnNV.Name = "btnNV";
-            this.btnNV.Size = new System.Drawing.Size(1000, 70);
-            this.btnNV.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnNV.TabIndex = 1;
             // 
             // btnNgayGio
             // 
@@ -996,11 +997,97 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // btnTrong
+            // 
+            this.btnTrong.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTrong.ForeColor = System.Drawing.Color.LimeGreen;
+            this.btnTrong.Location = new System.Drawing.Point(223, 17);
+            this.btnTrong.Name = "btnTrong";
+            this.btnTrong.Size = new System.Drawing.Size(180, 35);
+            this.btnTrong.TabIndex = 3;
+            this.btnTrong.Text = "button1";
+            this.btnTrong.UseVisualStyleBackColor = true;
+            // 
+            // btnDangHat
+            // 
+            this.btnDangHat.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDangHat.ForeColor = System.Drawing.Color.Red;
+            this.btnDangHat.Location = new System.Drawing.Point(412, 17);
+            this.btnDangHat.Name = "btnDangHat";
+            this.btnDangHat.Size = new System.Drawing.Size(180, 35);
+            this.btnDangHat.TabIndex = 4;
+            this.btnDangHat.Text = "button2";
+            this.btnDangHat.UseVisualStyleBackColor = true;
+            // 
+            // btnDangDon
+            // 
+            this.btnDangDon.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDangDon.ForeColor = System.Drawing.Color.Olive;
+            this.btnDangDon.Location = new System.Drawing.Point(606, 17);
+            this.btnDangDon.Name = "btnDangDon";
+            this.btnDangDon.Size = new System.Drawing.Size(180, 35);
+            this.btnDangDon.TabIndex = 4;
+            this.btnDangDon.Text = "button3";
+            this.btnDangDon.UseVisualStyleBackColor = true;
+            // 
+            // btnBaoTri
+            // 
+            this.btnBaoTri.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBaoTri.Location = new System.Drawing.Point(797, 17);
+            this.btnBaoTri.Name = "btnBaoTri";
+            this.btnBaoTri.Size = new System.Drawing.Size(180, 35);
+            this.btnBaoTri.TabIndex = 4;
+            this.btnBaoTri.Text = "button4";
+            this.btnBaoTri.UseVisualStyleBackColor = true;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.kháchVàoHátToolStripMenuItem,
+            this.cậpNhậtDịchVụToolStripMenuItem,
+            this.đổiPhòngToolStripMenuItem,
+            this.dọnPhòngToolStripMenuItem,
+            this.bảoTrìToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(189, 146);
+         
+            this.contextMenuStrip1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.contextMenuStrip1_MouseClick);
+            // 
+            // kháchVàoHátToolStripMenuItem
+            // 
+            this.kháchVàoHátToolStripMenuItem.Name = "kháchVàoHátToolStripMenuItem";
+            this.kháchVàoHátToolStripMenuItem.Size = new System.Drawing.Size(188, 24);
+            this.kháchVàoHátToolStripMenuItem.Text = "Khách vào hát";
+            // 
+            // cậpNhậtDịchVụToolStripMenuItem
+            // 
+            this.cậpNhậtDịchVụToolStripMenuItem.Name = "cậpNhậtDịchVụToolStripMenuItem";
+            this.cậpNhậtDịchVụToolStripMenuItem.Size = new System.Drawing.Size(188, 24);
+            this.cậpNhậtDịchVụToolStripMenuItem.Text = "Cập nhật dịch vụ";
+            // 
+            // đổiPhòngToolStripMenuItem
+            // 
+            this.đổiPhòngToolStripMenuItem.Name = "đổiPhòngToolStripMenuItem";
+            this.đổiPhòngToolStripMenuItem.Size = new System.Drawing.Size(188, 24);
+            this.đổiPhòngToolStripMenuItem.Text = "Đổi phòng";
+            // 
+            // dọnPhòngToolStripMenuItem
+            // 
+            this.dọnPhòngToolStripMenuItem.Name = "dọnPhòngToolStripMenuItem";
+            this.dọnPhòngToolStripMenuItem.Size = new System.Drawing.Size(188, 24);
+            this.dọnPhòngToolStripMenuItem.Text = "Dọn phòng";
+            // 
+            // bảoTrìToolStripMenuItem
+            // 
+            this.bảoTrìToolStripMenuItem.Name = "bảoTrìToolStripMenuItem";
+            this.bảoTrìToolStripMenuItem.Size = new System.Drawing.Size(188, 24);
+            this.bảoTrìToolStripMenuItem.Text = "Bảo trì";
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1217, 774);
+            this.ClientSize = new System.Drawing.Size(1677, 657);
             this.Controls.Add(this.ribbonClientPanel1);
             this.Controls.Add(this.ribbonControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -1017,6 +1104,7 @@
             this.ribbonPanel5.ResumeLayout(false);
             this.ribbonPanel3.ResumeLayout(false);
             this.ribbonClientPanel1.ResumeLayout(false);
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1074,7 +1162,6 @@
         private DevComponents.DotNetBar.ButtonX btnNgayGio;
         private System.Windows.Forms.Timer timer1;
         private DevComponents.DotNetBar.ButtonX buttonX1;
-        private DevComponents.DotNetBar.ButtonX btnNV;
         private DevComponents.DotNetBar.RibbonBar ribbonBar12;
         private DevComponents.DotNetBar.ButtonItem buttonItem7;
         private DevComponents.DotNetBar.RibbonBar ribbonBar11;
@@ -1083,6 +1170,16 @@
         private DevComponents.DotNetBar.ButtonItem btnTK;
         private DevComponents.DotNetBar.ButtonItem btnNhanVien;
         private DevComponents.DotNetBar.ButtonItem btnKhachHang;
+        private System.Windows.Forms.Button btnBaoTri;
+        private System.Windows.Forms.Button btnDangDon;
+        private System.Windows.Forms.Button btnDangHat;
+        private System.Windows.Forms.Button btnTrong;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem kháchVàoHátToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cậpNhậtDịchVụToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem đổiPhòngToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem dọnPhòngToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem bảoTrìToolStripMenuItem;
 
     }
 }

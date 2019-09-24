@@ -45,62 +45,77 @@ namespace QuanLyQuanKaraoke
             conn.Open();
             if (conn.State.ToString() == "Open")
             {
-                 string phongTrong = "select count(*) from phong where tinhtrang =N'Trống'";
-                SqlCommand cmd = new SqlCommand(phongTrong,conn);
-                int slPhongTrong = (int)cmd.ExecuteScalar();
-                int sodong = slPhongTrong / 5;
-                int sodu = slPhongTrong % 5;
-
-                for (int i = 0; i < sodong; i++)
+                string sophong = "select count(*) from phong";
+                SqlCommand cmd = new SqlCommand(sophong,conn);
+                int i = 0;
+                int j = 0;
+                int slPHat = 0;
+                int slpDon = 0;
+                int slPBaoTri = 0;
+                int slpTrong = 0;
+                //--------------------------
+                string sql_phong = "select * from phong";
+                SqlCommand cmd1 = new SqlCommand(sql_phong, conn);
+                SqlDataAdapter com = new SqlDataAdapter(cmd1);
+                DataTable table = new DataTable();//tạo bảng ảo trong hệ thống
+                com.Fill(table);// đổ dữ liệu vào bảng ảo
+                foreach (DataRow row in table.Rows)
                 {
-                    for (int j = 0; j < 5; j++)
-                    {
-                        Button b = new Button();
-                        Label lb = new Label();
-                        b.Name = i.ToString() + "Phòng 101" + j.ToString();
-                        b.Width = 150;
-                        b.Height = 150;
-                        b.Top = 160 + i * 150;
-                        b.Left = 20 + j * 150;
-                        b.BackColor = System.Drawing.Color.White;
-                        b.Text = "Phòng 101";
-                        lb.Text = "Sẵn sàng đón khách";
-                        lb.Width = 120;
-                        lb.Top = 280 + i * 150;
-                        lb.Left = 35 + j * 150;
-                        lb.TextAlign = ContentAlignment.BottomCenter;
-                        lb.ForeColor = System.Drawing.Color.Green;
-                        lb.BackColor = System.Drawing.Color.White;
-                        this.Controls.Add(lb);
-                        b.Image = Image.FromFile(@"C:\Users\phanv\Desktop\QuanLyQuanKaraoke\Project-Karaoke\QuanLyQuanKaraoke\QuanLyQuanKaraoke\image\icons8-microphone-64.png");
-                        b.TextAlign = ContentAlignment.TopCenter;
-                        this.Controls.Add(b);
-                    }
-                }
-                for (int a = 0; a < sodu; a++)
-                {
-                    Button b = new Button();
-                    Label lb = new Label();
-                    int dongcuoi = sodong;
-                    b.Name = dongcuoi.ToString() + "Phòng 101" + a.ToString();
-                    b.Width = 150;
-                    b.Height = 150;
-                    b.Top = 160 + dongcuoi * 150;
-                    b.Left = 20 + a * 150;
-                    b.BackColor = System.Drawing.Color.White;
-                    b.Text = "Phòng 101";
-                    lb.Text = "Sẵn sàng đón khách";
-                    lb.Width = 120;
-                    lb.Top = 280 + dongcuoi * 150;
-                    lb.Left = 35 + a * 150;
-                    lb.TextAlign = ContentAlignment.BottomCenter;
-                    lb.ForeColor = System.Drawing.Color.Green;
-                    lb.BackColor = System.Drawing.Color.White;
-                    this.Controls.Add(lb);
-                    b.Image = Image.FromFile(@"C:\Users\phanv\Desktop\QuanLyQuanKaraoke\Project-Karaoke\QuanLyQuanKaraoke\QuanLyQuanKaraoke\image\icons8-microphone-64.png");
-                    b.TextAlign = ContentAlignment.TopCenter;
-                    this.Controls.Add(b);
-                }
+                    
+                            Button b = new Button();
+                            Label lb = new Label();
+                            b.Name = row[1].ToString();
+                            b.Width = 150;
+                            b.Height = 150;
+                            b.Top = 160 + i * 170;
+                            b.Left = 20 + j * 170;
+                            if (row[3].ToString() == "Đang Dọn")
+                            {
+                                b.BackColor = System.Drawing.Color.Orange;
+                                slpDon++;
+                            }
+                            else
+                                if (row[3].ToString() == "Đang Hát")
+                                {
+                                    b.BackColor = System.Drawing.Color.Red;
+                                    slPHat++;
+                                }
+                                else
+                                    if (row[3].ToString() == "Bảo Trì")
+                                    {
+                                        b.BackColor = System.Drawing.Color.Brown;
+                                        slPBaoTri++;
+                                    }
+                                    else
+                                    {
+                                        b.BackColor = System.Drawing.Color.Green;
+                                        slpTrong++;
+                                    }
+                            b.Text = row[0].ToString();
+                            lb.Text = row[3].ToString();
+                            lb.Width = 120;
+                            lb.Top = 280 + i * 170;
+                            lb.Left = 35 + j * 170;
+                            lb.TextAlign = ContentAlignment.BottomCenter;
+                            lb.ForeColor = System.Drawing.Color.Green;
+                            lb.BackColor = System.Drawing.Color.White;
+                            this.Controls.Add(lb);
+                            b.Image = Image.FromFile(@"C:\Users\phanv\Desktop\QuanLyQuanKaraoke\Project-Karaoke\QuanLyQuanKaraoke\QuanLyQuanKaraoke\image\icons8-microphone-64.png");
+                            b.TextAlign = ContentAlignment.TopCenter;
+                            this.Controls.Add(b);
+                            j++;
+                            if (j == 7)
+                            {
+                                i++;
+                                j = 0;
+                            }
+                        }
+                btnTrong.Text = "Phòng trống: " + slpTrong.ToString();
+                btnBaoTri.Text = "Bảo trì: " + slPBaoTri.ToString();
+                btnDangDon.Text = "Đang dọn: " + slpDon.ToString();
+                btnDangHat.Text = "Đang hát: " + slPHat.ToString();
+                
+              
                
                 
             }
@@ -111,33 +126,7 @@ namespace QuanLyQuanKaraoke
         {
             timer1.Interval = 1000;
             timer1.Start();
-            //  for (int i = 0; i < 2; i++)
-            //{
-            //    for (int j = 0; j < 2; j++)
-            //    {
-            //        Button b = new Button();
-            //        Label lb = new Label();
-            //        b.Name = i.ToString() + "Phòng 101" + j.ToString();
-            //        b.Width = 150;
-            //        b.Height = 150;
-            //        b.Top = 160 + i * 150;
-            //        b.Left = 20 + j * 150;
-            //        b.BackColor = System.Drawing.Color.White;
-            //        b.Text = "Phòng 101";
-            //        lb.Text = "Sẵn sàng đón khách";
-            //        lb.Width = 120;
-            //        lb.Top = 280 + i * 150;
-            //        lb.Left = 35 + j * 150;
-            //        lb.TextAlign = ContentAlignment.BottomCenter;
-            //        lb.ForeColor = System.Drawing.Color.Green;
-            //        lb.BackColor = System.Drawing.Color.White;
-            //        this.Controls.Add(lb);
-            //        b.Image = Image.FromFile(@"C:\Users\phanv\Desktop\QuanLyQuanKaraoke\Project-Karaoke\QuanLyQuanKaraoke\QuanLyQuanKaraoke\image\icons8-microphone-64.png");
-            //        b.TextAlign = ContentAlignment.TopCenter;
-            //        this.Controls.Add(b);  
-            //    }
-            
-            //}
+           
               load_phong();
         }
 
@@ -174,6 +163,14 @@ namespace QuanLyQuanKaraoke
         {
             frmNhanVien nv = new frmNhanVien();
             nv.Show();
+        }
+
+       
+
+        private void contextMenuStrip1_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+                contextMenuStrip1.Show(new Point(e.X,e.Y));
         }
     }
 }
