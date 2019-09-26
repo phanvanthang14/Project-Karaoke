@@ -86,13 +86,13 @@
             this.styleManager1 = new DevComponents.DotNetBar.StyleManager(this.components);
             this.styleManager2 = new DevComponents.DotNetBar.StyleManager(this.components);
             this.ribbonClientPanel1 = new DevComponents.DotNetBar.Ribbon.RibbonClientPanel();
+            this.btnBaoTri = new System.Windows.Forms.Button();
+            this.btnDangDon = new System.Windows.Forms.Button();
+            this.btnDangHat = new System.Windows.Forms.Button();
+            this.btnTrong = new System.Windows.Forms.Button();
             this.buttonX1 = new DevComponents.DotNetBar.ButtonX();
             this.btnNgayGio = new DevComponents.DotNetBar.ButtonX();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.btnTrong = new System.Windows.Forms.Button();
-            this.btnDangHat = new System.Windows.Forms.Button();
-            this.btnDangDon = new System.Windows.Forms.Button();
-            this.btnBaoTri = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.kháchVàoHátToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cậpNhậtDịchVụToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -967,6 +967,49 @@
             this.ribbonClientPanel1.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.ribbonClientPanel1.TabIndex = 1;
             // 
+            // btnBaoTri
+            // 
+            this.btnBaoTri.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBaoTri.Location = new System.Drawing.Point(797, 17);
+            this.btnBaoTri.Name = "btnBaoTri";
+            this.btnBaoTri.Size = new System.Drawing.Size(180, 35);
+            this.btnBaoTri.TabIndex = 4;
+            this.btnBaoTri.Text = "button4";
+            this.btnBaoTri.UseVisualStyleBackColor = true;
+            // 
+            // btnDangDon
+            // 
+            this.btnDangDon.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDangDon.ForeColor = System.Drawing.Color.Olive;
+            this.btnDangDon.Location = new System.Drawing.Point(606, 17);
+            this.btnDangDon.Name = "btnDangDon";
+            this.btnDangDon.Size = new System.Drawing.Size(180, 35);
+            this.btnDangDon.TabIndex = 4;
+            this.btnDangDon.Text = "button3";
+            this.btnDangDon.UseVisualStyleBackColor = true;
+            // 
+            // btnDangHat
+            // 
+            this.btnDangHat.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDangHat.ForeColor = System.Drawing.Color.Red;
+            this.btnDangHat.Location = new System.Drawing.Point(412, 17);
+            this.btnDangHat.Name = "btnDangHat";
+            this.btnDangHat.Size = new System.Drawing.Size(180, 35);
+            this.btnDangHat.TabIndex = 4;
+            this.btnDangHat.Text = "button2";
+            this.btnDangHat.UseVisualStyleBackColor = true;
+            // 
+            // btnTrong
+            // 
+            this.btnTrong.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTrong.ForeColor = System.Drawing.Color.LimeGreen;
+            this.btnTrong.Location = new System.Drawing.Point(223, 17);
+            this.btnTrong.Name = "btnTrong";
+            this.btnTrong.Size = new System.Drawing.Size(180, 35);
+            this.btnTrong.TabIndex = 3;
+            this.btnTrong.Text = "button1";
+            this.btnTrong.UseVisualStyleBackColor = true;
+            // 
             // buttonX1
             // 
             this.buttonX1.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
@@ -997,49 +1040,6 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // btnTrong
-            // 
-            this.btnTrong.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTrong.ForeColor = System.Drawing.Color.LimeGreen;
-            this.btnTrong.Location = new System.Drawing.Point(223, 17);
-            this.btnTrong.Name = "btnTrong";
-            this.btnTrong.Size = new System.Drawing.Size(180, 35);
-            this.btnTrong.TabIndex = 3;
-            this.btnTrong.Text = "button1";
-            this.btnTrong.UseVisualStyleBackColor = true;
-            // 
-            // btnDangHat
-            // 
-            this.btnDangHat.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDangHat.ForeColor = System.Drawing.Color.Red;
-            this.btnDangHat.Location = new System.Drawing.Point(412, 17);
-            this.btnDangHat.Name = "btnDangHat";
-            this.btnDangHat.Size = new System.Drawing.Size(180, 35);
-            this.btnDangHat.TabIndex = 4;
-            this.btnDangHat.Text = "button2";
-            this.btnDangHat.UseVisualStyleBackColor = true;
-            // 
-            // btnDangDon
-            // 
-            this.btnDangDon.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDangDon.ForeColor = System.Drawing.Color.Olive;
-            this.btnDangDon.Location = new System.Drawing.Point(606, 17);
-            this.btnDangDon.Name = "btnDangDon";
-            this.btnDangDon.Size = new System.Drawing.Size(180, 35);
-            this.btnDangDon.TabIndex = 4;
-            this.btnDangDon.Text = "button3";
-            this.btnDangDon.UseVisualStyleBackColor = true;
-            // 
-            // btnBaoTri
-            // 
-            this.btnBaoTri.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBaoTri.Location = new System.Drawing.Point(797, 17);
-            this.btnBaoTri.Name = "btnBaoTri";
-            this.btnBaoTri.Size = new System.Drawing.Size(180, 35);
-            this.btnBaoTri.TabIndex = 4;
-            this.btnBaoTri.Text = "button4";
-            this.btnBaoTri.UseVisualStyleBackColor = true;
-            // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -1049,8 +1049,7 @@
             this.dọnPhòngToolStripMenuItem,
             this.bảoTrìToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(189, 146);
-         
+            this.contextMenuStrip1.Size = new System.Drawing.Size(189, 124);
             this.contextMenuStrip1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.contextMenuStrip1_MouseClick);
             // 
             // kháchVàoHátToolStripMenuItem

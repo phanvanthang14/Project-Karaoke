@@ -91,7 +91,8 @@ namespace QuanLyQuanKaraoke
                                         b.BackColor = System.Drawing.Color.Green;
                                         slpTrong++;
                                     }
-                            b.Text = row[0].ToString();
+                            b.Text = "Phòng "+row[0].ToString();
+                            b.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                             lb.Text = row[3].ToString();
                             lb.Width = 120;
                             lb.Top = 280 + i * 170;
@@ -99,6 +100,7 @@ namespace QuanLyQuanKaraoke
                             lb.TextAlign = ContentAlignment.BottomCenter;
                             lb.ForeColor = System.Drawing.Color.Green;
                             lb.BackColor = System.Drawing.Color.White;
+                            lb.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0))); 
                             this.Controls.Add(lb);
                             b.Image = Image.FromFile(@"C:\Users\phanv\Desktop\QuanLyQuanKaraoke\Project-Karaoke\QuanLyQuanKaraoke\QuanLyQuanKaraoke\image\icons8-microphone-64.png");
                             b.TextAlign = ContentAlignment.TopCenter;
@@ -126,7 +128,7 @@ namespace QuanLyQuanKaraoke
         {
             timer1.Interval = 1000;
             timer1.Start();
-           
+            
               load_phong();
         }
 
