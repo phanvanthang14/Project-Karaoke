@@ -12,7 +12,7 @@ namespace QuanLyQuanKaraoke
         public static SqlConnection
                 GetDBConnection()
         {
-            SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-6KEP9GD\SQLEXPRESS;Initial Catalog=QuanLyQuanKaraoke;Integrated Security=True");
+            SqlConnection conn = new SqlConnection(@"Data Source=LAPTOP-FI63BATD;Initial Catalog=QuanLyQuanKaraoke;Integrated Security=True");
             return conn;
         }
     }
