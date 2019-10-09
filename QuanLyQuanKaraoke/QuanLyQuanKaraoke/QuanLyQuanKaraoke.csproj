@@ -88,16 +88,16 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmNhanVien.cs">
+    <Compile Include="QL_NhanVien_KhachHang\frmNhanVien.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmNhanVien.Designer.cs">
+    <Compile Include="QL_NhanVien_KhachHang\frmNhanVien.Designer.cs">
       <DependentUpon>frmNhanVien.cs</DependentUpon>
     </Compile>
-    <Compile Include="GiaoCa.cs">
+    <Compile Include="QL_NhanVien_KhachHang\GiaoCa.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GiaoCa.Designer.cs">
+    <Compile Include="QL_NhanVien_KhachHang\GiaoCa.Designer.cs">
       <DependentUpon>GiaoCa.cs</DependentUpon>
     </Compile>
     <Compile Include="Phong.cs">
@@ -126,7 +126,7 @@
     <Compile Include="ResetPassWord.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ResetPassWord.Designer.cs">
+    <Compile Include="ResetPassWord.designer.cs">
       <DependentUpon>ResetPassWord.cs</DependentUpon>
     </Compile>
     <Compile Include="TaoKetNoi.cs">
@@ -159,10 +159,10 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmNhanVien.resx">
+    <EmbeddedResource Include="QL_NhanVien_KhachHang\frmNhanVien.resx">
       <DependentUpon>frmNhanVien.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GiaoCa.resx">
+    <EmbeddedResource Include="QL_NhanVien_KhachHang\GiaoCa.resx">
       <DependentUpon>GiaoCa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Phong.resx">
@@ -232,10 +232,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="image\icons8-microphone-64.png" />
-    <Content Include="image\Image1.png" />
     <None Include="Resources\close-window-48.png" />
     <None Include="Resources\icons8-down-button-30.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

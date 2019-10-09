@@ -112,8 +112,9 @@ namespace QuanLyQuanKaraoke
                 if (KT_TrongNhomND())
                 {
                     qL_NhomNguoiDungTableAdapter.Insert(txtmanhom.Text, txttennhom.Text, txtghichu.Text);
+                    ThemQuyenChoNhomMoi(txtmanhom.Text);
                     this.qL_NhomNguoiDungTableAdapter.Fill(this.qL_TaiKhoan.QL_NhomNguoiDung);
-                    MessageBox.Show("Thêm nhóm người dùng thành công !", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Thêm nhóm người dùng thành công !", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);                    
                 }
             }
             catch
@@ -129,28 +130,47 @@ namespace QuanLyQuanKaraoke
                 string maNh = dgvNhomNguoiDung.CurrentRow.Cells[0].Value.ToString();
                 string tenNh = dgvNhomNguoiDung.CurrentRow.Cells[1].Value.ToString();
                 string GC = dgvNhomNguoiDung.CurrentRow.Cells[2].Value.ToString();
-                int kq = qL_NhomNguoiDungTableAdapter.Update(maNh, tenNh, GC, maNh, tenNh, GC);
-                if (kq == 1)
-                    MessageBox.Show("Sửa thành công!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                else
-                    MessageBox.Show("Lỗi", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                //int kq = qL_NhomNguoiDungTableAdapter.Update("MaNhom", null,null, maNh, tenNh, GC);
+                //if (kq == 1)
+                //    MessageBox.Show("Sửa thành công!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //else
+                //    MessageBox.Show("Lỗi", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void bntdelete_Click(object sender, EventArgs e)
         {
-            DialogResult r = MessageBox.Show("Bạn có chắc chắn muốn xóa nhóm người dùng " + txttennhom.Text + " !", "Thông Báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-            if (r == DialogResult.OK)
+            try
             {
-                string maNh = dgvNhomNguoiDung.CurrentRow.Cells[0].Value.ToString();
-                string tenNh = dgvNhomNguoiDung.CurrentRow.Cells[1].Value.ToString();
-                string GC = dgvNhomNguoiDung.CurrentRow.Cells[2].Value.ToString();
-                int kq = qL_NhomNguoiDungTableAdapter.Delete(maNh, tenNh, GC);
-                this.qL_NhomNguoiDungTableAdapter.Fill(this.qL_TaiKhoan.QL_NhomNguoiDung);
-                if (kq == 1)
-                    MessageBox.Show("Xóa thành công!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                else
-                    MessageBox.Show("Đang có tài khoản thuộc nhóm này, Không thể xóa Nhóm !", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                DialogResult r = MessageBox.Show("Bạn có chắc chắn muốn xóa nhóm người dùng " + txttennhom.Text + " !", "Thông Báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (r == DialogResult.OK)
+                {
+                    string maNh = dgvNhomNguoiDung.CurrentRow.Cells[0].Value.ToString();
+                    string tenNh = dgvNhomNguoiDung.CurrentRow.Cells[1].Value.ToString();
+                    string GC = dgvNhomNguoiDung.CurrentRow.Cells[2].Value.ToString();
+                    string sql_kt = "select * from QL_TaiKhoan where NhomNguoiDung='"+maNh+"'";
+                    SqlCommand cmdkt = new SqlCommand(sql_kt, kn);
+                    SqlDataReader doc = cmdkt.ExecuteReader();
+                    if (doc.Read())
+                    {
+                        MessageBox.Show("Đang có tài khoản thuộc nhóm này, Không thể xóa Nhóm !", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        doc.Close();
+                    }
+                    else
+                    {
+                        doc.Close();
+                        XoaQuyenChoNhom(maNh);
+                        int kq = qL_NhomNguoiDungTableAdapter.Delete(maNh, tenNh, GC);
+                        this.qL_NhomNguoiDungTableAdapter.Fill(this.qL_TaiKhoan.QL_NhomNguoiDung);
+                        if (kq == 1)
+                            MessageBox.Show("Xóa thành công!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -180,7 +200,7 @@ namespace QuanLyQuanKaraoke
             }
             catch (System.Exception ex)
             {
-                //System.Windows.Forms.MessageBox.Show(ex.Message);
+               // System.Windows.Forms.MessageBox.Show(ex.Message);
             }
         }
 
@@ -195,27 +215,44 @@ namespace QuanLyQuanKaraoke
                 for (int i = 0; i <tongsodong-1 ; i++)
                 {
                     maCN = dvgPhanQuyenTheoNhom.Rows[i].Cells[0].Value.ToString();
-                    try //chưa được thiết lập trong DTB nên giá trị checkbox NULL
-                    {
-                        CoQuyen = (bool)dvgPhanQuyenTheoNhom.Rows[i].Cells[2].Value;
-                    }
-                    catch
-                    {
-                        CoQuyen = false;
-                    }
-                    try
-                    {
-                        this.qL_PhanQuyenTableAdapter.Insert(maND, maCN, CoQuyen);
-                    }
-                    catch
-                    {
-                        MessageBox.Show("update");
-                        //this.qL_PhanQuyenTableAdapter.Update();
-                    }
-                }
+                    CoQuyen = (bool)dvgPhanQuyenTheoNhom.Rows[i].Cells[2].Value;
+                    string sql_CNquyen = "update QL_PhanQuyen set CoQuyen='" + CoQuyen + "' where MaNhomNguoiDung='" + maND + "' and MaChucNang='" + maCN + "'";
+                    SqlCommand cmd_UD = new SqlCommand(sql_CNquyen, kn);
+                    cmd_UD.ExecuteNonQuery();
+                    CapNhatTatCaTKtheoNhom(maND,maCN,CoQuyen);
+                }                
                 MessageBox.Show("Cập nhật quyền thành công !","Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void CapNhatTatCaTKtheoNhom(string MaNHOM, string MaCHUCNANG, bool CoQUYEN)
+        {
+            try
+            {
+                List<string> tendn = new List<string>();
+                string TenDangNhap = null, MaChucNang = null;
+                bool quyenNhom;
+                string sql_layTDN = "select TenDangNhap, NhomNguoiDung from QL_TaiKhoan where NhomNguoiDung='" + MaNHOM + "'";
+                SqlCommand cmd_layTDN = new SqlCommand(sql_layTDN, kn);
+                SqlDataReader doc = cmd_layTDN.ExecuteReader();
+                while (doc.Read())
+                {
+                    tendn.Add(doc.GetString(0));
+                }
+                doc.Close();
+                foreach (string item in tendn)
+                {
+                    TenDangNhap = item;
+                    string sql_UDQuyenTKtheoNhom = "update QL_PhanQuyenTaiKhoan set Quyen='" + CoQUYEN + "' where TenDN='" + TenDangNhap + "' and MaCN='" + MaCHUCNANG + "'";
+                    SqlCommand cmd_UDQuyenTKtheoNhom = new SqlCommand(sql_UDQuyenTKtheoNhom,kn);
+                    cmd_UDQuyenTKtheoNhom.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -243,40 +280,88 @@ namespace QuanLyQuanKaraoke
 
         private void btn_luu_pqtk_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                string maCN = null;
+                string TenDN = cbb_tentaikhoan.SelectedValue.ToString();
+                bool CoQuyen;
+                int tongsodong = dgv_PhanQuyenTK.Rows.Count;
+                for (int i = 0; i < tongsodong - 1; i++)
+                {
+                    maCN = dgv_PhanQuyenTK.Rows[i].Cells[0].Value.ToString();
+                    CoQuyen = (bool)dgv_PhanQuyenTK.Rows[i].Cells[2].Value;
+                    string sql_CNquyenTK = "update QL_PhanQuyenTaiKhoan set Quyen='"+CoQuyen+"' where TenDN='"+TenDN+"' and MaCN='"+maCN+"'";
+                    SqlCommand cmd_UD = new SqlCommand(sql_CNquyenTK, kn);
+                    cmd_UD.ExecuteNonQuery();
+                }
+                MessageBox.Show("Cập nhật quyền thành công !", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         public void CapNhatQuyenTheoNhomND(string manhom, string tendangnhap)
         {
             try
             {
-                string maCN = null;
-                bool quyen;
                 string sql_updateQuyenTheoNhomND = "select * from QL_PhanQuyen where QL_PhanQuyen.MaNhomNguoiDung='"+manhom+"'";
                 SqlCommand cmdread = new SqlCommand(sql_updateQuyenTheoNhomND,kn);
-                SqlDataReader read= cmdread.ExecuteReader();               
-                while(read.Read())
+                SqlDataAdapter adt = new SqlDataAdapter(cmdread);                
+                DataTable table = new DataTable();
+                adt.Fill(table);
+                foreach (DataRow item in table.Rows)
                 {
-                    maCN= read.GetString(1);
-                    quyen= read.GetBoolean(2);
-                    try
-                    {
-                        this.qL_PhanQuyenTaiKhoanTableAdapter.Insert(tendangnhap,maCN,quyen);
-                    }
-                    catch
-                    {
-                        //this.qL_PhanQuyenTaiKhoanTableAdapter.Update();
-                    }
+                    string sql_CNquyenTK = "update QL_PhanQuyenTaiKhoan set Quyen='" + item[2] + "' where TenDN='" + tendangnhap + "' and MaCN='" + item[1] + "'";
+                    SqlCommand cmd_UD = new SqlCommand(sql_CNquyenTK, kn);
+                    cmd_UD.ExecuteNonQuery();
                 }
-                read.Close();
-                MessageBox.Show("Cập nhật quyền thành công !", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
              catch (Exception ex)
+            {                 
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void ThemQuyenChoNhomMoi(string maNH)
+        {
+            try
+            {
+                bool CoQuyen = false;
+                string sql_maCN = "select MaChucNang from QL_ChucNang";
+                SqlCommand cmd_newNhom = new SqlCommand(sql_maCN, kn);
+                SqlDataReader doc = cmd_newNhom.ExecuteReader();
+                while (doc.Read())
+                {
+                    this.qL_PhanQuyenTableAdapter.Insert(maNH, doc.GetString(0), CoQuyen);
+                }
+                doc.Close();                
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
         }
 
+        private void XoaQuyenChoNhom(string maNhom)
+        {
+            try
+            {
+                string sql_laynhom = "select * from QL_PhanQuyen where MaNhomNguoiDung='"+maNhom+"'";
+                SqlCommand cmd_xoaQuyen = new SqlCommand(sql_laynhom, kn);
+                SqlDataReader doc = cmd_xoaQuyen.ExecuteReader();
+                while (doc.Read())
+                {
+                    this.qL_PhanQuyenTableAdapter.Delete(doc.GetString(0), doc.GetString(1), doc.GetBoolean(2));
+                }
+                doc.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
  
     }
 }

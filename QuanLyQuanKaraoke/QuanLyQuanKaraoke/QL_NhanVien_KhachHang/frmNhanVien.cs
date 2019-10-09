@@ -19,8 +19,7 @@ namespace QuanLyQuanKaraoke
 
         private void frmNhanVien_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'dataQuanLy.NhanVien' table. You can move, or remove it, as needed.
-            this.nhanVienTableAdapter.Fill(this.dataQuanLy.NhanVien);
+
 
         }
     }

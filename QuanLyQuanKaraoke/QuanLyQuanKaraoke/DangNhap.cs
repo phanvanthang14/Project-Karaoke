@@ -25,7 +25,7 @@ namespace QuanLyQuanKaraoke
             Control_dangnhap.ketnoisql = conn;
             Control_dangnhap.tenbang = "QL_TaiKhoan";
             Control_dangnhap.txt1 = "tendangnhap";
-            Control_dangnhap.txt2 = "matkhau";
+            Control_dangnhap.txt2 = "matkhau";           
             Control_dangnhap.CotTinhTrang = 3;
             Control_dangnhap.GiaTriCotTinhTrang = "True";
             Control_dangnhap.form_Dong = this;

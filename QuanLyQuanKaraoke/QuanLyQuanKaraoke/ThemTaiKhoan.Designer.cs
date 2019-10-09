@@ -35,6 +35,7 @@
             this.labelX2 = new DevComponents.DotNetBar.LabelX();
             this.labelX3 = new DevComponents.DotNetBar.LabelX();
             this.txtmanv = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.nhanVienBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.qL_TaiKhoan = new QuanLyQuanKaraoke.QL_TaiKhoan();
             this.labelX4 = new DevComponents.DotNetBar.LabelX();
             this.labelX5 = new DevComponents.DotNetBar.LabelX();
@@ -49,11 +50,13 @@
             this.nhanVienTableAdapter = new QuanLyQuanKaraoke.QL_TaiKhoanTableAdapters.NhanVienTableAdapter();
             this.qL_TaiKhoanBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.qL_TaiKhoanTableAdapter = new QuanLyQuanKaraoke.QL_TaiKhoanTableAdapters.QL_TaiKhoanTableAdapter();
-            this.nhanVienBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.qL_PhanQuyenTaiKhoanBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.qL_PhanQuyenTaiKhoanTableAdapter = new QuanLyQuanKaraoke.QL_TaiKhoanTableAdapters.QL_PhanQuyenTaiKhoanTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.nhanVienBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qL_TaiKhoan)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qL_NhomNguoiDungBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qL_TaiKhoanBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nhanVienBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qL_PhanQuyenTaiKhoanBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // txtten
@@ -138,6 +141,11 @@
             this.txtmanv.Name = "txtmanv";
             this.txtmanv.Size = new System.Drawing.Size(197, 25);
             this.txtmanv.TabIndex = 1;
+            // 
+            // nhanVienBindingSource
+            // 
+            this.nhanVienBindingSource.DataMember = "NhanVien";
+            this.nhanVienBindingSource.DataSource = this.qL_TaiKhoan;
             // 
             // qL_TaiKhoan
             // 
@@ -248,6 +256,8 @@
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager.NhanVienTableAdapter = this.nhanVienTableAdapter;
             this.tableAdapterManager.QL_NhomNguoiDungTableAdapter = this.qL_NhomNguoiDungTableAdapter;
+            this.tableAdapterManager.QL_PhanQuyenTableAdapter = null;
+            this.tableAdapterManager.QL_PhanQuyenTaiKhoanTableAdapter = null;
             this.tableAdapterManager.QL_TaiKhoanTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = QuanLyQuanKaraoke.QL_TaiKhoanTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
@@ -264,16 +274,20 @@
             // 
             this.qL_TaiKhoanTableAdapter.ClearBeforeFill = true;
             // 
-            // nhanVienBindingSource
+            // qL_PhanQuyenTaiKhoanBindingSource
             // 
-            this.nhanVienBindingSource.DataMember = "NhanVien";
-            this.nhanVienBindingSource.DataSource = this.qL_TaiKhoan;
+            this.qL_PhanQuyenTaiKhoanBindingSource.DataMember = "QL_PhanQuyenTaiKhoan";
+            this.qL_PhanQuyenTaiKhoanBindingSource.DataSource = this.qL_TaiKhoan;
+            // 
+            // qL_PhanQuyenTaiKhoanTableAdapter
+            // 
+            this.qL_PhanQuyenTaiKhoanTableAdapter.ClearBeforeFill = true;
             // 
             // ThemTaiKhoan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(433, 415);
+            this.ClientSize = new System.Drawing.Size(433, 541);
             this.Controls.Add(this.ckbHoatDong);
             this.Controls.Add(this.btnLuu);
             this.Controls.Add(this.cbbhoten);
@@ -294,10 +308,11 @@
             this.Text = "Thêm Tài Khoản";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ThemTaiKhoan_FormClosing);
             this.Load += new System.EventHandler(this.ThemTaiKhoan_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.nhanVienBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.qL_TaiKhoan)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.qL_NhomNguoiDungBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.qL_TaiKhoanBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nhanVienBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qL_PhanQuyenTaiKhoanBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -325,5 +340,7 @@
         private System.Windows.Forms.BindingSource qL_TaiKhoanBindingSource;
         private QL_TaiKhoanTableAdapters.QL_TaiKhoanTableAdapter qL_TaiKhoanTableAdapter;
         private System.Windows.Forms.BindingSource nhanVienBindingSource;
+        private System.Windows.Forms.BindingSource qL_PhanQuyenTaiKhoanBindingSource;
+        private QL_TaiKhoanTableAdapters.QL_PhanQuyenTaiKhoanTableAdapter qL_PhanQuyenTaiKhoanTableAdapter;
     }
 }

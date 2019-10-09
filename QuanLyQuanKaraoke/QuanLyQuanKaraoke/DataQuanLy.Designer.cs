@@ -3635,7 +3635,7 @@ SELECT MaDV, TenDichVu, SoLuong, DonGiaNhap, DonGiaBan, DVT FROM DichVu WHERE (M
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::QuanLyQuanKaraoke.Properties.Settings.Default.strString;
+            this._connection.ConnectionString = global::QuanLyQuanKaraoke.Properties.Settings.Default.QuanLyQuanKaraokeConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4102,7 +4102,7 @@ SELECT MaPhucVu, MaPhong, SDT_KH, GioBD FROM HoaDon_Tam WHERE (MaPhucVu = @MaPhu
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::QuanLyQuanKaraoke.Properties.Settings.Default.strString;
+            this._connection.ConnectionString = global::QuanLyQuanKaraoke.Properties.Settings.Default.QuanLyQuanKaraokeConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4483,7 +4483,7 @@ SELECT MaPV, MaDV, SoLuong, DonViTinh FROM CTHD_Tam WHERE (MaDV = @MaDV) AND (Ma
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::QuanLyQuanKaraoke.Properties.Settings.Default.strString;
+            this._connection.ConnectionString = global::QuanLyQuanKaraoke.Properties.Settings.Default.QuanLyQuanKaraokeConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4859,7 +4859,7 @@ SELECT MaPV, MaDV, SoLuong, DonViTinh FROM CTHD_Tam WHERE (MaDV = @MaDV) AND (Ma
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::QuanLyQuanKaraoke.Properties.Settings.Default.strString;
+            this._connection.ConnectionString = global::QuanLyQuanKaraoke.Properties.Settings.Default.QuanLyQuanKaraokeConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5075,7 +5075,7 @@ SELECT TenKH, SDT, TichDiem FROM KhachHang WHERE (SDT = @SDT)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::QuanLyQuanKaraoke.Properties.Settings.Default.strString;
+            this._connection.ConnectionString = global::QuanLyQuanKaraoke.Properties.Settings.Default.QuanLyQuanKaraokeConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5482,7 +5482,7 @@ SELECT MaNV, TenNV, GioiTinh, DiaChi, SDT, CMND, NgayVaoLam FROM NhanVien WHERE 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::QuanLyQuanKaraoke.Properties.Settings.Default.strString;
+            this._connection.ConnectionString = global::QuanLyQuanKaraoke.Properties.Settings.Default.QuanLyQuanKaraokeConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

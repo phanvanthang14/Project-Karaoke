@@ -1,4 +1,5 @@
-﻿namespace QuanLyQuanKaraoke {
+﻿namespace QuanLyQuanKaraoke
+{
     
     
     public partial class QL_TaiKhoan {

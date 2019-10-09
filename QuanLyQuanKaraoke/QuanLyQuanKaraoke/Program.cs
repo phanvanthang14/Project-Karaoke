@@ -22,7 +22,7 @@ namespace QuanLyQuanKaraoke
                 SqlConnection kn = new SqlConnection(Properties.Settings.Default.strString);
                 kn.Open();
                 kn.Close();
-                Application.Run(new QuanLyTaiKhoan());
+                Application.Run(new frmNhanVien());
             }
             catch
             {

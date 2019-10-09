@@ -8,14 +8,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using Control_DangNhap;
+
 namespace QuanLyQuanKaraoke
 {
     public partial class FormMain : Form
     {
         string maphong;
         string tinhtrang;
-       
-        
+
+        SqlConnection kn = Connection.GetDBConnection();
+ 
         public FormMain()
         {
             InitializeComponent();
@@ -41,8 +44,10 @@ namespace QuanLyQuanKaraoke
         {
 
         }
-       
-        public void load_phong() {
+
+
+        public void load_phong() 
+        {
             SqlConnection conn = new SqlConnection();
             Connection kn = new Connection();
             conn = Connection.GetDBConnection();
@@ -166,22 +171,50 @@ namespace QuanLyQuanKaraoke
                         if (tinhtrangp == "Đang Dọn")
                         {
                             MessageBox.Show("Bạn có muốn kết thúc dọn phòng không ?");
-                        }
-                      
-
-                 
-                    
+                        }        
                 }
            
         }
-
       
         private void FormMain_Load(object sender, EventArgs e)
         {
+            kn.Open();
             timer1.Interval = 1000;
             timer1.Start();
-            
-              load_phong();
+            load_phong();            
+            load_PhanQuyen(Control_dangnhap.get_TenDangNhap);
+        }
+
+        private void load_PhanQuyen(string tenDN)
+        {
+            string sql_PhanQuyen = "select * from QL_PhanQuyenTaiKhoan where TenDN='"+tenDN+"'";
+            SqlCommand cmd_PhanQuyen = new SqlCommand(sql_PhanQuyen, kn);
+            SqlDataAdapter adt = new SqlDataAdapter(cmd_PhanQuyen);
+            DataTable table = new DataTable();
+            adt.Fill(table);
+            foreach (DataRow item in table.Rows)
+            {                
+                if (item[1].ToString() == "CN01" && (bool)item[2]==false)
+                    CN01.Visible = false;
+                if (item[1].ToString() == "CN02" && (bool)item[2] == false)
+                    CN02.Visible = false;
+                if (item[1].ToString() == "CN03" && (bool)item[2] == false)
+                    CN03.Visible = false;
+                if (item[1].ToString() == "CN04" && (bool)item[2] == false)
+                    CN04.Visible = false;
+                if (item[1].ToString() == "CN05" && (bool)item[2] == false)
+                    CN05.Visible = false;
+                if (item[1].ToString() == "CN06" && (bool)item[2] == false)
+                    CN06.Visible = false;
+                if (item[1].ToString() == "CN07" && (bool)item[2] == false)
+                    CN07.Visible = false;
+                if (item[1].ToString() == "CN08" && (bool)item[2] == false)
+                    CN08.Visible = false;
+                if (item[1].ToString() == "CN09" && (bool)item[2] == false)
+                    CN09.Visible = false;
+                if (item[1].ToString() == "CN10" && (bool)item[2] == false)
+                    CN10.Visible = false;
+            }
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -209,8 +242,7 @@ namespace QuanLyQuanKaraoke
 
         private void btnDoiMK_Click(object sender, EventArgs e)
         {
-            ResetPassWord reset = new ResetPassWord();
-            reset.Show();
+
         }
 
         private void btnNhanVien_Click(object sender, EventArgs e)
@@ -234,6 +266,13 @@ namespace QuanLyQuanKaraoke
             dv.ShowDialog();
             this.Show();
         }
+
+        private void FormMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            kn.Close();
+        }
+
+
 
     }
 }
